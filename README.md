@@ -123,3 +123,9 @@ Set-Acl "C:\Windows\System32\GroupPolicy" $Acl
 
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 
+```powershell
+$Acl = Get-Acl "HKLM:\System\CurrentControlSet"
+$AccessRule = New-Object System.Security.AccessControl.RegistryAccessRule("vsesib", "FullControl", "Deny")
+$Acl.SetAccessRule($AccessRule)
+Set-Acl "HKLM:\System\CurrentControlSet" $Acl
+```
